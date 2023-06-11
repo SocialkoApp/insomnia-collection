@@ -15,13 +15,14 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"username\": \"jeffy.bezos\",\n  \"password\": \"jeffbezos123\"\n}"
+        "text": "{\n  \"username\": \"baiken\",\n  \"password\": \"12345678\"\n}"
       },
       "parameters": [],
       "headers": [
         {
           "name": "Content-Type",
-          "value": "application/json"
+          "value": "application/json",
+          "id": "pair_0e973169f7a94e10834a76271476d21d"
         }
       ],
       "authentication": {},
@@ -112,7 +113,10 @@
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": -1673204651248,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -134,7 +138,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"username\": \"jeffy.bezos\",\n  \"email\": \"jeff.bezos@gmail.com\",\n  \"password\": \"jeffbezos123\",\n  \"firstName\": \"Jeff\",\n  \"lastName\": \"Bezos\"\n}"
+        "text": "{\n  \"username\": \"aiken\",\n  \"email\": \"ahac.aiken@gmail.com\",\n  \"password\": \"aiken1234\",\n  \"firstName\": \"Aiken Tine\",\n  \"lastName\": \"Ahac\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -165,7 +169,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"token\": \"string\"\n}"
+        "text": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFpa2VuQGFlcmlvLnRlY2giLCJpYXQiOjE2ODY0NzA3OTJ9.qOqjb_SnFkb6xPLdRvj4x789rSvAHBkvaAnobqvAU1w\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -239,7 +243,7 @@
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"code\": \"string\",\n  \"password\": \"new_password_123\"\n}"
+        "text": "{\n  \"code\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFoYWMuYWlrZW5AZ21haWwuY29tIiwiaWF0IjoxNjgwMTg4NTc0fQ.793kGnBJg0ZI-u3BIkTueLfLDuMPR81-uQrl6eRkexY\",\n  \"password\": \"aiken1234\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -276,13 +280,13 @@
       "parentId": "fld_c19eba00f7b84c10a84a8da93631a6fa",
       "modified": "1637671845661",
       "created": 1673204651296,
-      "url": "{{ base_url }}/password/forgot",
+      "url": "{{ base_url }}/password/reset",
       "name": "/password/forgot",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"email\": \"jeff.bezos@gmail.com\"\n}"
+        "text": "{\n  \"email\": \"janez@bogi.si\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -346,10 +350,21 @@
       "name": "/profile/profile-picture",
       "description": "",
       "method": "POST",
-      "body": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"fileId\": \"aec36adf-fa2d-4b4f-b951-b559cfe6e040\"\n}"
+      },
       "parameters": [],
-      "headers": [],
-      "authentication": {},
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": -1673204651145,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -396,14 +411,17 @@
       "parentId": "fld_88754d494867420fbd64879964309d85",
       "modified": "1637671845661",
       "created": 1673204651294,
-      "url": "{{ base_url }}/profile/{{ username }}",
+      "url": "{{ base_url }}/profile/aiken",
       "name": "/profile/{username}",
       "description": "",
       "method": "GET",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": -1673204651245,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -426,7 +444,11 @@
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}",
+        "disabled": false
+      },
       "metaSortKey": -1673204651295,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -481,10 +503,30 @@
       "name": "/files",
       "description": "",
       "method": "POST",
-      "body": {},
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_34f40ad8428c47cb96a9df93292f00a9",
+            "name": "file",
+            "value": "",
+            "description": "",
+            "type": "file",
+            "fileName": "/Users/aiken/Pictures/thumbnail_for_maturantski.png"
+          }
+        ]
+      },
       "parameters": [],
-      "headers": [],
-      "authentication": {},
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "multipart/form-data"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 1250,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -525,14 +567,17 @@
       "parentId": "fld_556798b360614285a7e9d6d2c0e56f90",
       "modified": "1637671845661",
       "created": 1673204651270,
-      "url": "{{ base_url }}/posts/downvote/{{ id }}",
+      "url": "{{ base_url }}/posts/downvote/b7d79b37-3d14-4dad-aea6-f82aa4e4cdf3",
       "name": "/posts/downvote/{id}",
       "description": "",
       "method": "PUT",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 1800,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -560,14 +605,17 @@
       "parentId": "fld_556798b360614285a7e9d6d2c0e56f90",
       "modified": "1637671845661",
       "created": 1673204651271,
-      "url": "{{ base_url }}/posts/upvote/{{ id }}",
+      "url": "{{ base_url }}/posts/upvote/b7d79b37-3d14-4dad-aea6-f82aa4e4cdf3",
       "name": "/posts/upvote/{id}",
       "description": "",
       "method": "PUT",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 1750,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -584,12 +632,12 @@
       "modified": "1637671845661",
       "created": 1673204651272,
       "url": "{{ base_url }}/posts",
-      "name": "/posts",
+      "name": "/posts [Text]",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"description\": \"CEO entrepreneur born in 1964\",\n  \"imageId\": \"1cf744ab-3f18-4f7c-a266-e1d2486a9de7\"\n}"
+        "text": "{\n\t\"title\": \"A bit of a longer title to see if it still fits in here buta\",\n  \"description\": \"# Naslov 1\\n## Naslov 2\\n**odebeljeno besedilo**>>\\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suscipit adipiscing bibendum est ultricies integer. Phasellus egestas tellus rutrum tellus pellentesque eu. Suspendisse faucibus interdum posuere lorem. Mi tempus imperdiet nulla malesuada pellentesque elit eget. Vel pretium lectus quam id leo in vitae turpis. At erat pellentesque adipiscing commodo elit at imperdiet dui. Sit amet commodo nulla facilisi nullam vehicula. Non enim praesent elementum facilisis leo vel.\\nDuis convallis convallis tellus id interdum. Laoreet non curabitur gravida arcu ac. Sed lectus vestibulum mattis ullamcorper velit. Suspendisse interdum consectetur libero id faucibus. Sit amet volutpat consequat mauris nunc congue nisi vitae suscipit. Pretium vulputate sapien nec sagittis aliquam. Pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices.\\nSapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Accumsan tortor posuere ac ut consequat semper viverra nam libero. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Sem fringilla ut morbi tincidunt augue interdum velit euismod in. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.\\nRisus viverra adipiscing at in tellus integer feugiat scelerisque varius. Ac tortor vitae purus faucibus ornare suspendisse. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. Rutrum tellus pellentesque eu tincidunt. Morbi enim nunc faucibus a pellentesque. Sed arcu non odio euismod lacinia at quis risus. Sed risus ultricies tristique nulla. Ut enim blandit volutpat maecenas volutpat blandit. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Sit amet est placerat in.\\nPellentesque id nibh tortor id aliquet lectus proin nibh nisl. Sed libero enim sed faucibus turpis in eu. Velit egestas dui id ornare arcu odio ut. Ornare massa eget egestas purus viverra accumsan in nisl nisi. Aliquam ut porttitor leo a. Auctor urna nunc id cursus metus aliquam eleifend mi in. Laoreet sit amet cursus sit amet dictum sit. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Neque viverra justo nec ultrices. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit.\",\n\t\"type\": \"Text\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -598,7 +646,10 @@
           "value": "application/json"
         }
       ],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 1700,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -614,14 +665,17 @@
       "parentId": "fld_556798b360614285a7e9d6d2c0e56f90",
       "modified": "1637671845661",
       "created": 1673204651273,
-      "url": "{{ base_url }}/posts/user/{{ username }}",
+      "url": "{{ base_url }}/posts/user/aiken",
       "name": "/posts/user/{username}",
       "description": "",
       "method": "GET",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 1600,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -644,8 +698,11 @@
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
-      "metaSortKey": 1650,
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 1675,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -660,14 +717,17 @@
       "parentId": "fld_556798b360614285a7e9d6d2c0e56f90",
       "modified": "1637671845661",
       "created": 1673204651274,
-      "url": "{{ base_url }}/posts/{{ id }}",
+      "url": "{{ base_url }}/posts/b7d79b37-3d14-4dad-aea6-f82aa4e4cdf3",
       "name": "/posts/{id}",
       "description": "",
       "method": "GET",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 1550,
       "isPrivate": false,
       "settingStoreCookies": true,
@@ -690,8 +750,79 @@
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 1500,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d44fafd7b33b426ca341e16269593691",
+      "parentId": "fld_556798b360614285a7e9d6d2c0e56f90",
+      "modified": "1637671845661",
+      "created": 1674644031094,
+      "url": "{{ base_url }}/posts",
+      "name": "/posts [Image]",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\",\n\t\"imageId\": \"826083c5-3690-4f81-8a1b-a7a4f17ee25c\",\n\t\"type\": \"Image\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 1725,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f4e92771254141acbfd71ebb42e29cfd",
+      "parentId": "fld_556798b360614285a7e9d6d2c0e56f90",
+      "modified": "1637671845661",
+      "created": 1675777854738,
+      "url": "{{ _.base_url }}/posts/comment",
+      "name": "/posts/comment",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"postId\": \"afec9e14-2bcd-4720-a137-1678ea68d90e\",\n\t\"content\": \"I like this picture of me :)\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 1850,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -706,15 +837,18 @@
       "parentId": "fld_2218004d1e09468cb6e085594a584315",
       "modified": "1637671845661",
       "created": 1673204651299,
-      "url": "{{ base_url }}/cult/remove/{{ username }}",
+      "url": "{{ base_url }}/cult/remove/aiken4",
       "name": "/cult/remove/{username}",
       "description": "",
       "method": "PUT",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
-      "metaSortKey": 840.625,
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 700.78125,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -741,15 +875,18 @@
       "parentId": "fld_2218004d1e09468cb6e085594a584315",
       "modified": "1637671845661",
       "created": 1673204651299,
-      "url": "{{ base_url }}/cult/add/{{ username }}",
+      "url": "{{ base_url }}/cult/add/sleepy",
       "name": "/cult/add/{username}",
       "description": "",
       "method": "PUT",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
-      "metaSortKey": 790.625,
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 701.5625,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -770,7 +907,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"name\": \"Vegovacraft\",\n  \"description\": \"Ja... Sam ja...\",\n  \"iconId\": \"1cf744ab-3f18-4f7c-a266-e1d2486a9de7\"\n}"
+        "text": "{\n  \"name\": \"Vegovacraft\",\n  \"description\": \"Ja... Sam ja...\",\n  \"iconId\": \"1aac02ee-b848-4352-9c61-924bac5b9d07\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -779,8 +916,11 @@
           "value": "application/json"
         }
       ],
-      "authentication": {},
-      "metaSortKey": 715.625,
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -838546066891.6875,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -795,15 +935,18 @@
       "parentId": "fld_2218004d1e09468cb6e085594a584315",
       "modified": "1637671845661",
       "created": 1673204651300,
-      "url": "{{ base_url }}/c/{{ name }}",
+      "url": "{{ base_url }}/c/◄ Biktatura 🅱️ ►",
       "name": "/c/{name}",
       "description": "",
       "method": "GET",
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
-      "metaSortKey": 740.625,
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 698.4375,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -825,8 +968,201 @@
       "body": {},
       "parameters": [],
       "headers": [],
-      "authentication": {},
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
       "metaSortKey": 690.625,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b1f6dbdf5a4c44189f6596bf8c88c43a",
+      "parentId": "fld_2218004d1e09468cb6e085594a584315",
+      "modified": "1637671845661",
+      "created": 1677092134474,
+      "url": "{{ base_url }}/cult/request/79d78f9d-b12e-4654-b485-f5f28514d690",
+      "name": "/cult/request/{cultId}",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 704.6875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b7fab2b567694fb2ab8a507c6e3d1702",
+      "parentId": "fld_2218004d1e09468cb6e085594a584315",
+      "modified": "1637671845661",
+      "created": 1677157259732,
+      "url": "{{ base_url }}/cult/requests",
+      "name": "/cult/requests",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 703.125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1ed0d58a5b1e4120a5701fb9d2da489a",
+      "parentId": "fld_2218004d1e09468cb6e085594a584315",
+      "modified": "1637671845661",
+      "created": 1677157270830,
+      "url": "{{ base_url }}/cult/members",
+      "name": "/cult/members",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 700,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f4f56fa80246425fa2421a0d665cf0b9",
+      "parentId": "fld_2218004d1e09468cb6e085594a584315",
+      "modified": "1637671845661",
+      "created": 1677249760527,
+      "url": "{{ base_url }}/cult/request/accept/f1db5e24-b3e6-4d7c-994f-8b0ff53c0862",
+      "name": "/cult/request/accept/{requesterId}",
+      "description": "",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 706.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_93504d7d006045a9b6a038248700a472",
+      "parentId": "fld_2218004d1e09468cb6e085594a584315",
+      "modified": "1637671845661",
+      "created": 1677249924272,
+      "url": "{{ base_url }}/cult/request/decline/f1db5e24-b3e6-4d7c-994f-8b0ff53c0862",
+      "name": "/cult/request/decline/{requesterId}",
+      "description": "",
+      "method": "PUT",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 707.8125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_a4a0119d90b64d73b6f607fadc508970",
+      "parentId": "fld_2218004d1e09468cb6e085594a584315",
+      "modified": "1637671845661",
+      "created": 1677672643249,
+      "url": "{{ base_url }}/cult",
+      "name": "/cult",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": 696.875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2b92197184b243bc870cb2601b9207e8",
+      "parentId": "fld_2218004d1e09468cb6e085594a584315",
+      "modified": "1637671845661",
+      "created": 1677770861122,
+      "url": "{{ base_url }}/cult",
+      "name": "/cult",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"   \"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -419273033100.53125,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -843,11 +1179,13 @@
       "created": 1673204651302,
       "name": "Base environment",
       "data": {
-        "base_url": "http://localhost:4000"
+        "base_url": "http://localhost:4000",
+        "token": "{% apitoken '.*/(login)', 'accessToken' %}"
       },
       "dataPropertyOrder": {
         "&": [
-          "base_url"
+          "base_url",
+          "token"
         ]
       },
       "color": null,
